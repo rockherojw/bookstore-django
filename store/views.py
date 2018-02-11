@@ -17,7 +17,8 @@ import string, random
 
 from .models import Book, BookOrder, Cart, Review
 from .forms import ReviewForm
-
+import logging
+logger = logging.getLogger(__name__)
 
 
 # Create your views here.
@@ -26,6 +27,11 @@ def index(request):
 
 
 def store(request):
+    i = 0
+    while (i < 10):
+        logger.debug("test log %d" % i)
+        i += 1
+
     books = Book.objects.all()
     context = {
         'books': books,
